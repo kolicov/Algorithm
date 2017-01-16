@@ -56,6 +56,12 @@
     <Compile Include="Dynamic Programming\SubsetSumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Algorithms.csproj">
+      <Project>{491fe82d-774b-4b29-a300-4191358c6b93}</Project>
+      <Name>Algorithms</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

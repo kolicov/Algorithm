@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Graphs
+namespace Algorithms
 {
     class SourceRemovalTopographicalSort
     {
-        int x = 0;
+        Graph _graph = new Graph();
+
+        public void Run()
+        {
+
+        }
     }
 }
