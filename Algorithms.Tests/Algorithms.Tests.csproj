@@ -54,6 +54,8 @@
     <Compile Include="Dynamic Programming\MoveDownRightSumTests.cs" />
     <Compile Include="Dynamic Programming\LongestCommonSequenceTests.cs" />
     <Compile Include="Dynamic Programming\SubsetSumTests.cs" />
+    <Compile Include="Graph\GraphTraversingTests.cs" />
+    <Compile Include="Graph\GraphSorterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

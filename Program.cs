@@ -54,11 +54,11 @@ namespace Algorithms
             // TODO:(new Kanpsack()).Run();
 
             // Graphs:
-            // (new TraverseGraphWithDFS()).Run();
-            (new TraverseGraphWithBFS()).Run();
+            // (new GraphTraversingWithDFS()).Run();
+            (new GraphTraversingWithBFS()).Run();
 
-            //(new SourceRemovalTopographicalSort()).Run();
-            //(new SourceRemovalTopographicalSort()).Run();
+            // (new TopologicalSourceRemovalSort()).Run();
+            // (new TopologicalDFSSort()).Run();
         }
 
     }
