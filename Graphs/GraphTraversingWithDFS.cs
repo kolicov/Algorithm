@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Graphs_AdjacencyMatrix;
+using Algorithms.Graphs_AdjacencyLists;
 
 namespace Algorithms
 {
@@ -14,7 +14,7 @@ namespace Algorithms
 
         private Graph CreateSimpleGraph()
         {
-            var graph = new Graph(7);
+            var graph = new Graph();
 
             graph.InsertNode(0, new int[] { 3, 6 });
             graph.InsertNode(1, new int[] { 2, 3, 4, 5, 6 });
@@ -73,13 +73,13 @@ namespace Algorithms
                 {
                     _visitedNodes.Add(node);
 
-                    var children = _graph[node];
+                    var predecessors = _graph[node].PredecessorsIndexes;
 
-                    children.Reverse();
+                    predecessors.Reverse();
 
-                    foreach (var child in children)
+                    foreach (var predecessor in predecessors)
                     {
-                        nodes.Push(child);
+                        nodes.Push(predecessor);
                     }
                 }
             }
@@ -94,9 +94,9 @@ namespace Algorithms
 
             _visitedNodes.Add(nodeIndex);
 
-            foreach (var child in _graph[nodeIndex])
+            foreach (var predecessor in _graph[nodeIndex].PredecessorsIndexes)
             {
-                TraverseGraphUsingRecursion(child);
+                TraverseGraphUsingRecursion(predecessor);
             }
         }
     }

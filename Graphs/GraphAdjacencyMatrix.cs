@@ -27,17 +27,17 @@ namespace Algorithms.Graphs_AdjacencyMatrix
             {
                 if (index >= 0 && index < _matrix.Length)
                 {
-                    var children = new List<int>();
+                    var predecessors = new List<int>();
 
                     for(int i = 0; i < Count; i++)
                     {
                         if(_matrix[index, i]) // If status is "true"
                         {
-                            children.Add(i);
+                            predecessors.Add(i);
                         }
                     }
  
-                    return children;
+                    return predecessors;
                 }
                 else
                 {
@@ -58,15 +58,15 @@ namespace Algorithms.Graphs_AdjacencyMatrix
         }
 
         /// <summary>
-        /// Inserts a node with a list of children (predecessors).
+        /// Inserts a node with a list of predecessors.
         /// </summary>
-        public void InsertNode(int index, int[] children = null)
+        public void InsertNode(int index, int[] predecessors = null)
         {
-            if (children != null)
+            if (predecessors != null)
             {
-                foreach (int child in children)
+                foreach (int predecessor in predecessors)
                 {
-                    _matrix[index, child] = true;
+                    _matrix[index, predecessor] = true;
                 }
             }
         }

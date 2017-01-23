@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Graphs_AdjacencyMatrix;
+using Algorithms.Graphs_AdjacencyLists;
 
 namespace Algorithms
 {
@@ -14,7 +14,7 @@ namespace Algorithms
 
         private Graph CreateSimpleGraph()
         {
-            var graph = new Graph(7);
+            var graph = new Graph();
 
             graph.InsertNode(0, new int[] { 3, 6 });
             graph.InsertNode(1, new int[] { 2, 3, 4, 5, 6 });
@@ -78,13 +78,13 @@ namespace Algorithms
                 {
                     _visitedNodes.Add(node);
 
-                    var children = _graph[node];
+                    var predecessors = _graph[node].PredecessorsIndexes;
 
-                    if (children != null)
+                    if (predecessors != null)
                     {
-                        foreach (var child in children)
+                        foreach (var predecessor in predecessors)
                         {
-                            nodes.Enqueue(child);
+                            nodes.Enqueue(predecessor);
                         }
                     }
                 }
@@ -93,37 +93,37 @@ namespace Algorithms
 
         private void TraverseGraphBFSUsingRecursion(int node)
         {
-            var children = _graph[node];
+            var predecessors = _graph[node].PredecessorsIndexes;
 
-            if (children == null)
+            if (predecessors == null)
             {
                 return;
             }
 
-            var visitedChildren = new bool[children.Count];
+            var visitedPredecessors = new bool[predecessors.Count];
 
             int i = 0;
-            foreach (var child in children)
+            foreach (var predecessor in predecessors)
             {
-                if (!_visitedNodes.Contains(child))
+                if (!_visitedNodes.Contains(predecessor))
                 {
-                    _visitedNodes.Add(child);
-                    visitedChildren[i] = false;
+                    _visitedNodes.Add(predecessor);
+                    visitedPredecessors[i] = false;
                 }
                 else
                 {
-                    visitedChildren[i] = true;
+                    visitedPredecessors[i] = true;
                 }
 
                 i++;
             }
 
             i = 0;
-            foreach (var child in children)
+            foreach (var predecessor in predecessors)
             {
-                if (!visitedChildren[i])
+                if (!visitedPredecessors[i])
                 {
-                    TraverseGraphBFSUsingRecursion(child);
+                    TraverseGraphBFSUsingRecursion(predecessor);
                 }
 
                 i++;

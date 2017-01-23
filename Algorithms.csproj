@@ -55,10 +55,12 @@
     <Compile Include="Dynamic Programming\LongestIncreasingSubsequence.cs" />
     <Compile Include="Dynamic Programming\MoveDownRightSum.cs" />
     <Compile Include="Dynamic Programming\SubsetSumWithoutRepetition.cs" />
+    <Compile Include="Graphs\GraphAcyclicChecker.cs" />
     <Compile Include="Graphs\GraphAdjacencyMatrix.cs" />
-    <Compile Include="Graphs\TopologicalDFSSort.cs" />
+    <Compile Include="Graphs\GraphShortestDistanceBetweenTwoNodes.cs" />
+    <Compile Include="Graphs\GraphTopologicalDFSSort.cs" />
     <Compile Include="Graphs\GraphAdjacencytList.cs" />
-    <Compile Include="Graphs\TopologicalSourceRemovalSort.cs" />
+    <Compile Include="Graphs\GraphTopologicalSourceRemovalSort.cs" />
     <Compile Include="Graphs\GraphTraversingWithBFS.cs" />
     <Compile Include="Graphs\GraphTraversingWithDFS.cs" />
     <Compile Include="Program.cs" />

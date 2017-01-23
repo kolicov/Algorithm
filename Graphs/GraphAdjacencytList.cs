@@ -1,37 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithms.Graphs_AdjacencyLists
 {
     public class Node
     {
-        List<int> _childrenIndexes = new List<int>();
+        dynamic _value;
+
+        List<int> _predecessorsIndexes = new List<int>();
 
         public Node()
         {
             // Node without predecessors
         }
 
-        public Node(int[] childrenIndexes)
+        public Node(int[] predecessorsIndexes)
         {
-            foreach(int index in childrenIndexes)
-            {
-                _childrenIndexes.Add(index);
-            }
+            _predecessorsIndexes.AddRange(predecessorsIndexes);
         }
 
-        public List<int> Children
+        public List<int> PredecessorsIndexes
         {
             get
             {
-                return _childrenIndexes;
+                return _predecessorsIndexes;
             }
         }
 
-        public int Index { get; set; }
+        public int Id { get; set; }
+
+        public dynamic Value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
+            }
+        }
     }
 
     /// <summary>
@@ -79,11 +87,47 @@ namespace Algorithms.Graphs_AdjacencyLists
         }
 
 
-        public void InsertNode(int index, Node node)
+        public void InsertNode(int index, int[] predecessors = null, dynamic value = null)
         {
-            node.Index = index;
+            Node node;
+
+            if (predecessors != null)
+            {
+                node = new Node(predecessors);
+            }
+            else
+            {
+                node = new Node();
+            }
+
+            node.Id = index;
+
+            if (value != null)
+            {
+                node.Value = value;
+            }
+            else
+            {
+                node.Value = index;
+            }
 
             _nodes.Insert(index, node);
+        }
+
+        /// <summary>
+        /// Returns the first node that has the given value.
+        /// </summary>
+        public int GetNodeIdFromValue(int nodeValue)
+        {
+            foreach(Node node in Nodes)
+            {
+                if(node.Value == nodeValue)
+                {
+                    return node.Id;
+                }
+            }
+
+            return -1; // not found
         }
     }
 }
